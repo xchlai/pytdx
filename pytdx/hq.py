@@ -207,13 +207,15 @@ class TdxHq_API(BaseSocketClient):
         # 具体详情参见 https://github.com/rainx/pytdx/issues/21
         def __select_market_code(code):
             code = str(code)
+            if code[0] in ['4', '8']:
+                return TDXParams.MARKET_BJ
             if code[0] in ['5', '6', '9'] or code[:3] in ["009", "126", "110", "201", "202", "203", "204"]:
-                return 1
-            return 0
+                return TDXParams.MARKET_SH
+            return TDXParams.MARKET_SZ
         # 新版一劳永逸偷懒写法zzz
-        market_code = 1 if str(code)[0] == '6' else 0
+        market_code = __select_market_code(code)
         # https://github.com/rainx/pytdx/issues/33
-        # 0 - 深圳， 1 - 上海
+        # 0 - 深圳， 1 - 上海， 2 - 北京
 
         data = pd.concat([self.to_df(self.get_security_bars(9, __select_market_code(
             code), code, (9 - i) * 800, 800)) for i in range(10)], axis=0)

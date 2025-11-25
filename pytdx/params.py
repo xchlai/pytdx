@@ -7,6 +7,7 @@ class TDXParams:
 
     MARKET_SZ = 0  # 深圳
     MARKET_SH = 1  # 上海
+    MARKET_BJ = 2  # 北京
 
     #K线种类
     # K 线种类

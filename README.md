@@ -30,8 +30,23 @@ Pytdx 是一款纯Python语言开发的类似TradeX的行情数据接口的实�
 安装
 ---
 
+可以通过 PyPI 安装发布版：
+
 ```
 pip install pytdx
+```
+
+如果需要使用本 fork（如北京市场代码支持），请从 GitHub 安装可识别的包地址，否则会出现“cannot detect archive format”错误：
+
+```
+# 安装默认分支最新代码
+pip install -U "git+https://github.com/xchlai/pytdx.git"
+
+# 如果需要指定分支，例如当前仓库的 work 分支
+pip install -U "git+https://github.com/xchlai/pytdx.git@work"
+
+# 或者下载压缩包安装（避免 pip 解析 HTML）
+pip install -U https://github.com/xchlai/pytdx/archive/refs/heads/work.zip
 ```
 
 接口实现
