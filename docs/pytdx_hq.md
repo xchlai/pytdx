@@ -159,7 +159,7 @@ api.get_history_minute_time_data(TDXParams.MARKET_SH, &amp;apos;600300&amp;apos;
 
 ```
 
-注意，在引入 TDXParams 之后， （`from pytdx.params import TDXParams`） 我们可以使用 TDXParams.MARKET_SH , TDXParams.MARKET_SZ 常量来代替 1 和 0 作为参数
+注意，在引入 TDXParams 之后， （`from pytdx.params import TDXParams`） 我们可以使用 TDXParams.MARKET_SH , TDXParams.MARKET_SZ, TDXParams.MARKET_BJ 常量来代替 1、0 和 2 作为参数
 
 ### 8 : 查询分笔成交
 
