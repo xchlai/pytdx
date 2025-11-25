@@ -51,7 +51,7 @@ def fetch_all_codes(api: TdxHq_API, markets: Iterable[int]) -> List[str]:
             chunk = api.get_security_list(market, start)
             if not chunk:
                 break
-            codes.extend(api.to_df(chunk)["code"].tolist())
+            codes.extend(row["code"] for row in api.to_df(chunk)["code"].tolist())
             start += len(chunk)
     return codes
 
